@@ -16,6 +16,6 @@ nodeHtmlToImage({
   </html>
   `,
   content: { name: 'Maciek' },
-  puppeteerArgs: ['--no-sandbox', '--disable-setuid-sandbox']
+  puppeteerArgs: { 'no-sandbox': true }
 })
   .then(() => console.log('The image was created successfully!'))
