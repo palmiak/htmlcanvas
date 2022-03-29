@@ -1,4 +1,7 @@
-const nodeHtmlToImage = require('node-html-to-image')
+const nodeHtmlToImage = require('node-html-to-image');
+const { hideBin } = require('yargs/helpers')
+const yargs = require('yargs');
+const argv = yargs(hideBin(process.argv)).argv
 
 nodeHtmlToImage({
   output: './image.png',
@@ -15,7 +18,7 @@ nodeHtmlToImage({
     <body>Hello {{ name }}</body>
   </html>
   `,
-  content: { name: 'Maciek' },
+  content: { name: argv.name },
   puppeteerArgs: { args: ['--no-sandbox'] }
 })
   .then(() => console.log('The image was created successfully!'))
